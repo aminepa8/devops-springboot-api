@@ -45,7 +45,17 @@ public class EmployeeControllerTest {
 	}
 
 	//Create new Employee test
-	
+	@Test
+	@Rollback(false)
+		public void testSaveNewEmployee() throws Exception {
+			Employee employee = new Employee("testName","testLastname", "test@test.com");
+
+			repository.save(employee);
+
+			Employee employee2 = repository.findByemailID("test@test.com");
+
+			assertThat(employee2.getEmailID()).isEqualTo("test@test.com");
+	}
 	
 	
 	
