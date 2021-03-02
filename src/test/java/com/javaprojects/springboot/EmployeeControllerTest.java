@@ -60,7 +60,18 @@ public class EmployeeControllerTest {
 	
 	
 	//Update Employee Test
-	
+@Test
+@Rollback(false)
+public void testUpdateEmployee() {
+    Employee employee = repository.findByemailID("test@test.com");
+    employee.setFirstName("Ahmed");
+     
+    repository.save(employee);
+     
+    Employee updatedEmployee  = repository.findByemailID("test@test.com");
+     
+    assertThat(updatedEmployee.getFirstName()).isEqualTo("Ahmed");
+}
 	
 	//Delete Employee Test 
 	
