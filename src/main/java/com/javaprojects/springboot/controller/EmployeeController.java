@@ -24,10 +24,8 @@ import com.javaprojects.springboot.repository.EmployeeRepository;
 @RequestMapping("/api/v1/")
 
 public class EmployeeController {
-
 	@Autowired
 	private EmployeeRepository  employeeRepository;
-	
 	
 	// get all employees
 	@CrossOrigin(origins = "*")
